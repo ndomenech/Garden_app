@@ -38,11 +38,11 @@
                 <div class="dropdown">  
                     <select id ="vegatables">
                         <option ></option>
-                        <option value="Broccli">BROCCCLI</option>
-                        <option value="Peas">PEAS</option>
+                        <option value="broccoli">BROCCOLI</option>
                         <option value="green beans">GREEN BEANS</option>
-                        <option value="TOMATOES">TOMATOES</option>
-                        <option value="Potatoes">Potatoes</option>
+                        <option value="tomatoes">TOMATOES</option>
+                        <option value="Peas">PEAS</option>
+                        <option value="potatoes">Potatoes</option>
                         <option value="zuccini">zuccini</option>
                     </select>
                   </div>
@@ -50,19 +50,24 @@
             <div class="col-2">
                 <div class="input-group">
                         <span class="input-group-btn">
-                                <button id="btn1" class="btn btn-secondary" type="button" onclick=addVeg() >SELECT</button>
+                                <button id="btn1" class="btn btn-secondary" type="button" onclick="addVeg()" >SELECT</button>
                          </span>
                     
                   </div>
             </div>
-            <div class="col-4">
+
+            
+                <div class="col-4">
                     <div class="card" id="vegcard">
-                        <img id="my_img" class="card-img-top" src="../server/img/peas.jpg" alt="Card image cap">
+                        <img id="my_img" class="card-img-top" src="../server/img/general.jpg" alt="Card image cap">
                         <div class="card-body">
                         <h4 id="my_title" class="card-title">Plant Name</h4>
-                        <p id="my_text" class="card-text">Information about the plant, days to maturity, soil preferances, ectra</p>
+                        <p id="my_text" class="card-text">Description about the plant, Hw much to water, prune, weed ect.</p>
+                        <p id="my_DTM" class="card-text">Days To Maturity: XX </p>
                        
                         </div>
+                    </div>
+                </div>
                     </div>
              </div>
             
@@ -90,7 +95,32 @@
     <script src="https://code.jquery.com/jquery-3.2.1.min.js" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
-    <script src="addVeginfo.js"></script>
+    <script >
+    
+        
+            function addVeg(){
+                var veg = $('#vegatables').val();
+                var result = $.grep(plants, function(veg){ return veg.id == id; });
+
+                $('#my_img').attr('src', veg.src );
+                $('#my_title').text( result.title );
+                $('#my_text').text(result.text );
+                    
+            
+            plants =[
+            { id="broccoli", title: "broccoli", src:"./img/broccoli.jpg",  text: "plant information" },
+            { id="green beans", title: "green beans", src:"./img/green bean.jpg",  text: "plant information" },
+            { id="peas", title: "peas", src:" ./img/peas.jpg",  text: "plant info" },
+            { id="tomatoes", title: "tomatoes", src:"./img/tomtates.jpg",  text: "plant information" },
+            { id="potatoes", title: "potatoes", src:"./img/potatoes.jpg",  text: "plant information" },
+            { id="zucchini", title: "zicchini", src:"./img/zicchini.jpg",  text: "plant information" },
+            
+
+        ];
+            }
+        
+        
+</script>
     <script src="navigation.js">
     </script>
 </body>

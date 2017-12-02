@@ -1,7 +1,7 @@
 $(function(){
     
-$("#vegcard-placeholder").load( function (){
-      $("#btn1").click(function addVeg(){
+$("#vegCard-placeholder").load("_vegCard.html", function(){
+    $("#btn1").click(function addVeg(){
         var veg = $('#vegatables').val();
         var result = $.grep(plants, function(veg){ return veg.id == id; });
 
@@ -10,14 +10,7 @@ $("#vegcard-placeholder").load( function (){
         $('#my_text').text(result.text );
             
     
-       
-    })
-}
-)}
-)
-
-
-plants =[
+    plants =[
     { title: "broccoli", src:"./img/broccoli.jpg",  text: "plant information" },
     { title: "green beans", src:"./img/green bean.jpg",  text: "plant information" },
     { title: "peas", src:" ./img/peas.jpg",  text: "plant info" },
@@ -27,3 +20,8 @@ plants =[
     
 
 ];
+    })
+}
+)}
+)
+
